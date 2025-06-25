@@ -1,13 +1,21 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import {  useMotionValue, useSpring, useTransform } from "framer-motion";
 import './LandingPage.css';
+import SectionOne from "@/components/landingpage/component1";
 import { ChevronDown } from "lucide-react";
+import AnimatedLogo from "@/components/AnimatedLogo";
+import AnimatedWaves from "@/components/AnimatedWaves";
 
 const sections = [
   {
+    id: "zero",
+    content: <SectionOne />
+   },
+   {
     id: "one",
     content: (
-      <div className="relative h-screen flex items-center justify-center z-10">
+      <div className="relative h-screen flex items-center justify-center z-10" style={{ color: "black"}}>
         <div className="text-center">
           <img
             src="/2.png"
@@ -68,6 +76,8 @@ export default function LandingPage() {
   const [index, setIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [animationMode, setAnimationMode] = useState("default");
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
 
   const toggleAnimation = () => {
     console.log("Button pressed: changing animation and advancing section");
@@ -96,10 +106,20 @@ export default function LandingPage() {
 
       setTimeout(() => setIsAnimating(false), 1000);
     };
-
+    
     window.addEventListener("wheel", handleWheel, { passive: true });
     return () => window.removeEventListener("wheel", handleWheel);
   }, [isAnimating]);
+
+  useEffect(() => {
+    const move = (e: MouseEvent) => {
+      x.set(e.clientX);
+      y.set(e.clientY);
+    };
+    window.addEventListener("mousemove", move);
+    return () => window.removeEventListener("mousemove", move);
+  }, []);
+
 
   const getVariants = () => {
     switch (animationMode) {
@@ -125,31 +145,35 @@ export default function LandingPage() {
   };
 
   return (
-    <>
-     
-     <ChevronDown
-        onClick={toggleAnimation}
-        className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 w-10 h-10 text-white cursor-pointer animate-bounce hover:scale-110 transition"
-    />
+    <div>
 
-    <div className="h-screen w-screen overflow-hidden relative landing-page">
+        <ChevronDown
+            onClick={toggleAnimation}
+            className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 w-10 h-10 text-white cursor-pointer animate-bounce hover:scale-110 transition"
+        />
 
-      {/* Transparent Toggle Button */}
-     
+        <div className="h-screen w-screen overflow-hidden relative landing-page">
 
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={sections[index].id + animationMode}
-          className="fixed top-0 left-0 w-full h-full bg-cover bg-center z-0"
-          initial={getVariants().initial}
-          animate={getVariants().animate}
-          exit={getVariants().exit}
-          transition={{ duration: 1, ease: "easeInOut" }}
-        >
-          {sections[index].content}
-        </motion.div>
-      </AnimatePresence>
+        <AnimatePresence mode="wait">
+            <motion.div
+            key={sections[index].id + animationMode}
+            className="fixed top-0 left-0 w-full h-full bg-cover bg-center z-0"
+            initial={getVariants().initial}
+            animate={getVariants().animate}
+            exit={getVariants().exit}
+            transition={{ duration: 1, ease: "easeInOut" }}
+            >
+            {sections[index].content}
+            </motion.div>
+            
+        </AnimatePresence>
+            <div className="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
+              <AnimatedLogo />
+              <AnimatedWaves />
+            </div>
+            
+        </div>
     </div>
-    </>
+    
   );
 }

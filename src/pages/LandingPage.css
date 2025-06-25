@@ -1,6 +1,8 @@
+
 .landing-page {
-    background-image: url('/planets.svg');
-    background-color: rgb(214, 81, 214);
+    /*background-image: url('/planets.svg');*/
+    /*background-color: rgb(40, 39, 39);*/
+    background-color: rgb(24, 24, 24);
     background-repeat: no-repeat;
     background-size:contain;
     background-attachment: fixed;
