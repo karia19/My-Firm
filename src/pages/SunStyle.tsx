@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
+
 export default function SunriseScene() {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -11,7 +12,7 @@ export default function SunriseScene() {
   // 🔆 Animate sun rising
   const sunY = useTransform(scrollYProgress, [0, 1], [300, -100]);
   const sunOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 1]);
-  const overlayOpacity = useTransform(scrollYProgress, [0, 0.5], [0.6, 0]);
+  const overlayOpacity = useTransform(scrollYProgress, [0, 0.9], [0.9, 0]);
 
   // 🌗 Animate logo shadow from soft to strong
   const logoShadow = useTransform(scrollYProgress, [0, 1], [
@@ -22,8 +23,8 @@ export default function SunriseScene() {
     "0px 2px 4px rgba(0,0,0,0.2)",
     "0px 12px 24px rgba(0,0,0,0.6)",
   ]);
-  const logoLeft = useTransform(scrollYProgress, [0, 0.5], ["50vh", "20vw"]);
-  const logoTop = useTransform(scrollYProgress, [0, 0.5], ["30vh", "2vh"]);
+  const logoLeft = useTransform(scrollYProgress, [0, 0.3], ["50vh", "30vw"]);
+  const logoTop = useTransform(scrollYProgress, [0, 0.3], ["30vh", "12vh"]);
   const logoScale = useTransform(scrollYProgress, [0, 0.4], [1.5, 1.0]);
   
 
@@ -32,7 +33,8 @@ export default function SunriseScene() {
   const taglineY = useTransform(scrollYProgress, [0.2, 0.5], [50, 0]);
 
   return (
-    <motion.div ref={containerRef} style={{ height: "200vh", background: "white" }}>
+    
+    <motion.div ref={containerRef} style={{ height: "170vh", background: "white" }}>
       <motion.div
         style={{
           position: "sticky",
@@ -130,15 +132,15 @@ export default function SunriseScene() {
         <motion.div
           style={{
             position: "absolute",
-            top: "23vh",
-            right: 0,
+            top: "50vh",
+            right: 20,
             zIndex: 14,
             opacity: taglineOpacity,
             y: taglineY,
             color: "#333",
-            fontSize: "2rem",
+            fontSize: "1.6rem",
             fontWeight: 400,
-            maxWidth: "600px",
+            maxWidth: "450px",
             fontFamily: "'Segoe UI', sans-serif",
           }}
         >
@@ -148,6 +150,8 @@ export default function SunriseScene() {
           </p>
         </motion.div>
       </motion.div>
+
     </motion.div>
+
   );
 }
