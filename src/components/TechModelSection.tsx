@@ -42,23 +42,24 @@ export default function TechModelSection() {
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm z-0" />
 
-      <div className="relative z-10 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Left: Main Heading */}
         <motion.div
           style={{ y: yHeading }}
-          className="space-y-6 relative px-4 sm:px-0"
+          className="space-y-6 relative px-1 w-full"
           data-section="tech"
         >
           {/* ✨ SVG Stroke Border */}
+          <div className="relative w-full px-1 py-6 sm:px-6 sm:py-9">
           <motion.svg
-            viewBox="0 0 100 100"
+            viewBox="0 0 10 80"
             preserveAspectRatio="none"
             className="absolute inset-0 w-full h-full z-[-1] pointer-events-none"
           >
             <motion.rect
               x="2"
               y="2"
-              width="96"
+              width="100"
               height="96"
               rx="12"
               ry="12"
@@ -69,20 +70,22 @@ export default function TechModelSection() {
               strokeDashoffset={isInView ? 0 : 400}
               initial={{ strokeDashoffset: 400 }}
               animate={{ strokeDashoffset: isInView ? 0 : 400 }}
-              transition={{ duration: 1.4, ease: "easeInOut" }}
+              transition={{ duration: 2.4, ease: "easeInOut" }}
             />
           </motion.svg>
 
-          <h2 className="text-4xl sm:text-6xl font-extrabold uppercase sm:p-10 leading-tight tracking-tight">
+          <h2 className="text-6xl sm:text-6xl font-extrabold uppercase sm:p-10 leading-tight tracking-tight">
             <span className="block">From Design to Production</span>
             <span className="block text-blue-400">We Keep Your Fees Low</span>
           </h2>
+          </div>
         </motion.div>
+
 
         {/* Right: Supporting Text */}
         <motion.div
           style={{ y: yParagraph }}
-          className="space-y-6 mt-0 sm:mt-[25rem]"
+          className="space-y-6 mt-0 sm:mt-[5rem]"
         >
           <p className="text-gray-300 text-lg">
             Our goal is to <strong>minimize your monthly costs</strong> while

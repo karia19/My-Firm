@@ -118,3 +118,48 @@
     @apply bg-background text-foreground;
   }
 }
+
+.dot-background {
+  background-image: radial-gradient(white 0.5px, transparent 0.5px);
+  background-size: 5px 5px;
+}
+
+@keyframes slide-in {
+  0% { transform: translateX(100%); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+.animate-slide-in {
+  animation: slide-in 0.4s ease forwards;
+}
+
+@keyframes revealCircle {
+  0% {
+    clip-path: circle(0% at 95% 40px);
+    opacity: 0;
+  }
+  100% {
+    clip-path: circle(130% at 95% 340px);
+    background-color:aquamarine;
+    opacity: 1;
+  
+  }
+}
+.animate-revealCircle {
+  animation: revealCircle 1.3s ease-out forwards;
+
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fadeIn {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+

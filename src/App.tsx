@@ -6,6 +6,8 @@ import Navbar from "./components/Navbar";
 import TechModelSection from "./components/TechModelSection";
 import WorkFlow from "./components/Workflow";
 import Footer from "./components/Footer";
+import AppGallery from "./components/works";
+
 
 function App() {
   const scrollRef = useRef<HTMLElement>(null);
@@ -18,6 +20,7 @@ function App() {
       <WavyTopReveal scrollRef={scrollRef} />
       <WorkFlow />
       <TechModelSection />
+      <AppGallery />
       <Footer />
       
     </>

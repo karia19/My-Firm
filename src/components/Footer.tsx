@@ -9,12 +9,12 @@ export default function Footer() {
       <img
         src="moon4.png" // update this to your image path
         alt="Footer background"
-        className="w-full h-full object-cover opacity-30"
+        className="w-full h-full object-cover opacity-80"
       />
     </div>
 
       {/* 💳 Footer Content */}
-      <Card className="bg-white/80 backdrop-blur-md border-none rounded-none py-12">
+      <Card className="dot-background bg-white/80 backdrop-blur-md border-none rounded-none py-12">
         <CardContent className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
           {/* 🔗 Logo + Info */}
           <div className="flex flex-col gap-2 items-center md:items-start">
