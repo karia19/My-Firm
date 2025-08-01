@@ -40,15 +40,16 @@ export default function AIStyleSection() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         viewport={{ once: true }}
-        className="max-w-3xl mx-auto text-center mb-16 px-4"
+        className="max-w-5xl mx-auto text-center mb-16 px-4"
       >
         <h2 className="text-4xl sm:text-5xl font-extrabold text-foreground mb-4">
-          AI-Generated Visuals That Speak for You
+          Branded Visuals, Powered by AI and Human Creativity
         </h2>
-        <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
-          We use AI to generate logos, illustrations, and hero images tailored to your brand.
-          Whether you're launching a startup or refreshing your site, we deliver fast, affordable,
-          and stunning visuals.
+        
+        <p className="text-left text-muted-foreground text-base sm:text-lg leading-relaxed">
+            Not enough design materials? No problem. We use AI to craft logos, hero images, and illustrations tailored just for you — even if you’re starting from scratch.  
+            Prefer a professional designer’s touch? Our creative team is here to bring your ideas to life with pixel-perfect precision.  
+            Stunning visuals, fast delivery, and a bold look that feels uniquely yours.
         </p>
       </motion.div>
 

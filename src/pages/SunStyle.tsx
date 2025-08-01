@@ -1,6 +1,23 @@
+import { useEffect, useState, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
 
+
+function useIsMobile(breakpoint = 768) {
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== "undefined" && window.innerWidth < breakpoint
+  );
+
+  useEffect(() => {
+    function handleResize() {
+      setIsMobile(window.innerWidth < breakpoint);
+    }
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [breakpoint]);
+
+  return isMobile;
+}
 
 export default function SunriseScene() {
   const containerRef = useRef(null);
@@ -27,7 +44,7 @@ export default function SunriseScene() {
   const logoTop = useTransform(scrollYProgress, [0, 0.3], ["30vh", "12vh"]);
   const logoScale = useTransform(scrollYProgress, [0, 0.4], [1.5, 1.0]);
   
-
+  const isMobile = useIsMobile();
   // 🗨️ Marketing text fade in
   const taglineOpacity = useTransform(scrollYProgress, [0.2, 0.5], [0, 1]);
   const taglineY = useTransform(scrollYProgress, [0.2, 0.5], [50, 0]);
@@ -92,7 +109,7 @@ export default function SunriseScene() {
             position: "absolute",
             //top: "2vh",
             //left: "2vw",
-            left: logoLeft,
+            left: isMobile ? "50%" : logoLeft,
             top: logoTop,
             //scale: logoScale,
 
@@ -133,15 +150,18 @@ export default function SunriseScene() {
           style={{
             position: "absolute",
             top: "50vh",
-            right: 20,
+            left: isMobile ? "1%" : "50%",
+            transform: "translateX(-60%)",
             zIndex: 14,
             opacity: taglineOpacity,
             y: taglineY,
+            textAlign: "center",
             color: "#333",
             fontSize: "1.6rem",
             fontWeight: 400,
-            maxWidth: "450px",
-            fontFamily: "'Segoe UI', sans-serif",
+            maxWidth: "100%",
+            fontFamily: "'Segoe UI', sans-serif",    
+            padding: "10px"     
           }}
         >
           <p>

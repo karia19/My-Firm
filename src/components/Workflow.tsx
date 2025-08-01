@@ -18,13 +18,14 @@ export default function WorkFlow() {
   return (
     <section style={{ marginTop: "-30vh"}} ref={scrollRef} className="w-full font-sans bg-white py-32 px-8">
       {/* 📌 Section Heading */}
-      <div className="max-w-3xl mx-auto mb-28 text-center">
+      <div className="max-w-4xl mx-auto mb-28 text-center">
         <h1 className="text-5xl font-extrabold text-slate-800  tracking-tight mb-4">
           Our Project Journey
         </h1>
-        <p className="text-lg text-gray-600">
-          Every project we build follows a clear, intentional process — designed to uncover insights,
-          shape experiences, and launch with impact.
+        <p  className="text-left text-muted-foreground text-base sm:text-lg leading-relaxed">
+          Each project begins with you — your goals, ideas, and vision.  
+          We guide you through a structured, creative process that uncovers what makes your brand unique, transforms insights into meaningful design, and delivers stunning results that truly connect.  
+          From first sketches to final launch, every step is intentional, collaborative, and built for impact.
         </p>
       </div>
 

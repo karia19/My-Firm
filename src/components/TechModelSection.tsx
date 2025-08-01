@@ -3,7 +3,7 @@ import { useRef } from "react";
 
 export default function TechModelSection() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { amount: 0.5, once: false });
+  const isInView = useInView(ref, { amount: 0.2, once: false });
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -70,7 +70,7 @@ export default function TechModelSection() {
               strokeDashoffset={isInView ? 0 : 400}
               initial={{ strokeDashoffset: 400 }}
               animate={{ strokeDashoffset: isInView ? 0 : 400 }}
-              transition={{ duration: 2.4, ease: "easeInOut" }}
+              transition={{ duration: 2.0, ease: "easeInOut" }}
             />
           </motion.svg>
 
