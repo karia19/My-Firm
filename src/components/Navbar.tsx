@@ -10,7 +10,7 @@ export default function Navbar() {
     e.preventDefault();
     const target = document.getElementById(id);
     if (target) {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      target.scrollIntoView({ block: "start" });
       setOpen(false); // close menu on selection
     }
   };
@@ -20,7 +20,13 @@ export default function Navbar() {
       <div className="container mx-auto flex items-center justify-between px-6 py-4">
         {/* 🌟 Brand */}
         <nav className="text-2xl font-bold tracking-tight text-primary">
-          OivaUIX
+          <a
+            href="#home"
+            onClick={(e) => handleNavClick(e, "home")}
+            className="text-2xl font-bold tracking-tight text-primary cursor-pointer"
+            >
+            OivaUIX
+          </a>
         </nav>
 
         {/* 📱 Burger Icon */}
@@ -49,7 +55,7 @@ export default function Navbar() {
 
         {/* 🖥️ Desktop Nav */}
         <nav className="hidden md:flex items-center space-x-6">
-          {["home", "about", "services", "contact"].map((section) => (
+          {["desing", "workflow", "tech", "gallery"].map((section) => (
             <a
               key={section}
               href={`#${section}`}

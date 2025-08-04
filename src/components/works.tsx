@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 
-const mockups = ['/images/Screens/app3.png', '/images/Screens/app4.png', 'images/Screens/summit.png'];
+const mockups = ['/images/Screens/summit.png', '/images/Screens/app4.png', 'images/Screens/summit.png'];
 
 export default function AppGallery() {
   const ref = useRef(null);
@@ -45,13 +45,20 @@ export default function AppGallery() {
 
       {/* Floating Phones */}
       <div className="relative z-0 flex items-center justify-center gap-8 mt-32">
-        <motion.div style={{ x: x1, y: y1 }} className="w-[160px] h-[320px] rounded-2xl border-[6px] border-slate-700 overflow-hidden shadow-xl">
-          <img src={mockups[0]} className="w-full h-full object-cover" />
+        <motion.div style={{ x: x1, y: y1 }} className="w-[250px] h-[510px] z-20 bg-black rounded-[30px] shadow-xl overflow-hidden border-[8px] border-slate-700 group">
+        <video
+                src="/videos/kum2.mov"
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="absolute inset-0 w-full h-full object-fill"
+            />
         </motion.div>
-        <motion.div style={{ x: x2, y: y2 }} className="w-[160px] h-[320px] rounded-2xl border-[6px] border-slate-700 overflow-hidden shadow-xl">
+        <motion.div style={{ x: x2, y: y2 }} className="w-[160px] h-[320px] rounded-[36px] border-[6px] border-slate-700  rounded-xl shadow-2xl overflow-hidden shadow-xl">
           <img src={mockups[1]} className="w-full h-full object-cover" />
         </motion.div>
-        <motion.div style={{ x: x3, y: y3 }} className="w-[160px] h-[320px] rounded-2xl border-[6px] border-slate-700 overflow-hidden shadow-xl">
+        <motion.div style={{ x: x3, y: y3 }} className="w-[180px] h-[370px] rounded-2xl border-[6px] border-slate-700 overflow-hidden shadow-xl">
           <img src={mockups[2]} className="w-full h-full object-fill" />
         </motion.div>
       </div>
