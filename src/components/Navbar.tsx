@@ -14,6 +14,11 @@ export default function Navbar() {
       setOpen(false); // close menu on selection
     }
   };
+  const handleContactClick = () => {
+    console.log("User clicked the contact button")
+    window.location.href =
+      "mailto:oivauix@gmail.com?subject=Let’s%20Talk&body=Hi%20there,%20I’d%20love%20to%20learn%20more%20about%20your%20design%20services."
+  }
 
   return (
     <header className="dot-background fixed top-0 left-0 w-full z-50 bg-background/70 backdrop-blur-md border-b border-border">
@@ -55,7 +60,7 @@ export default function Navbar() {
 
         {/* 🖥️ Desktop Nav */}
         <nav className="hidden md:flex items-center space-x-6">
-          {["desing", "workflow", "tech", "gallery"].map((section) => (
+          {["design", "workflow", "tech", "gallery"].map((section) => (
             <a
               key={section}
               href={`#${section}`}
@@ -65,7 +70,12 @@ export default function Navbar() {
               {section.charAt(0).toUpperCase() + section.slice(1)}
             </a>
           ))}
-          <Button size="sm" className="ml-4">
+          <Button 
+            size="sm"
+            className="ml-4"
+            onClick={handleContactClick}
+            style={{ cursor: "pointer"}}
+            >
             Let’s Talk
           </Button>
         </nav>
@@ -96,7 +106,7 @@ export default function Navbar() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
           >
-            {["home", "about", "services", "contact"].map((section, i) => (
+            {["design", "workflow", "tech", "gallery"].map((section, i) => (
               <motion.a
                 key={section}
                 href={`#${section}`}

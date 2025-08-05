@@ -17,13 +17,14 @@ interface Props {
 
 export default function WavyTopReveal({ scrollRef }: Props) {
     //const [paths, setPaths] = useState<SvgPath[]>([]);
+    const internalRef = useRef(null); // ✨ New internal ref for scroll tracking
     const [open, setOpen] = useState(false);
     const [hovered, setHovered] = useState(false);
 
     console.log(scrollRef)
 
     const { scrollYProgress } = useScroll({
-      target: scrollRef,
+      target: internalRef,
       offset: ["start 108%", "end start"],
     });
         
@@ -39,9 +40,15 @@ export default function WavyTopReveal({ scrollRef }: Props) {
       //loadSvgPaths("/oivauix2.svg").then(setPaths);
     }, []);
   
+    const handleContactClick = () => {
+      console.log("User clicked the contact button")
+      window.location.href =
+        "mailto:oivauix@gmail.com?subject=Let’s%20Talk&body=Hi%20there,%20I’d%20love%20to%20learn%20more%20about%20your%20design%20services."
+    }
+
     return (
       <motion.div 
-        ref={scrollRef}
+        ref={internalRef} 
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         //transition={{ duration: 1.2, ease: "easeOut" }}
@@ -62,7 +69,7 @@ export default function WavyTopReveal({ scrollRef }: Props) {
         </motion.div>
 
       {/* 💬 Foreground Content */}
-        <div className="relative z-20 flex flex-col items-center justify-center min-h-screen px-6 text-center font-display">
+        <div className="relative z-20 flex flex-col items-center justify-center min-h-screen px-3 text-center font-display">
         <h1 className="text-6xl sm:text-5xl max-w-4xl font-extrabold mb-7 leading-tight text-white">
             We Design, Develop,
             and Manage Your Digital Presence
@@ -76,8 +83,9 @@ export default function WavyTopReveal({ scrollRef }: Props) {
             <button
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
-                className="relative h-20 px-10 sm:px-16 font-display text-[2rem] sm:text-[2.5rem] leading-none rounded-[22px]  transition-all duration-300 shadow-xl cursor-pointer circle-reveal-wrapper"
+                className="relative h-20 px-3 sm:px-16 font-display text-[2rem] sm:text-[2.5rem] leading-none rounded-[22px]  transition-all duration-300 shadow-xl cursor-pointer circle-reveal-wrapper"
                 style={{ backgroundColor: "#FBB884"}}
+                onClick={handleContactClick}
                >
                 {/* Expanding Circle Overlay */}
                 <div

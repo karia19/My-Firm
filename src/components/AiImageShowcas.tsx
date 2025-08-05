@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import "../styles/aiGrid.css";
 
+
 const images: string[] = [
   "images/AiImages/2.jpg",
   "images/AiImages/1.jpg",
@@ -14,21 +15,20 @@ const images: string[] = [
   "images/AiImages/10.jpg",
   "images/AiImages/11.jpg"
 ];
-
-const imageVariants = {
-  hidden: (i) => ({
-    x: i % 2 === 0 ? -100 : 100, // even = left, odd = right
-    opacity: 0
+const imageVariants: Record<string, (i: number) => any> = {
+  hidden: (i: number) => ({
+    x: i % 2 === 0 ? -100 : 100,
+    opacity: 0,
   }),
-  visible: {
+  visible: (i: number) => ({
     x: 0,
     opacity: 1,
     transition: {
       type: "spring",
       stiffness: 500,
-      damping: 30
-    }
-  }
+      damping: 30,
+    },
+  }),
 };
 
 export default function AIStyleSection() {
@@ -39,8 +39,8 @@ export default function AIStyleSection() {
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        viewport={{ once: true }}
-        className="max-w-5xl mx-auto text-center mb-16 px-4"
+        viewport={{ once: false }}
+        className="max-w-5xl mx-auto text-center mb-16 px-3"
       >
         <h2 className="text-4xl sm:text-5xl font-extrabold text-foreground mb-4">
           Branded Visuals, Powered by AI and Human Creativity
@@ -64,7 +64,7 @@ export default function AIStyleSection() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={imageVariants}
-            transition={{ type: "tween", ease: "easeInOut", duration: 0.4 }}
+            transition={{ type: "tween", ease: "easeInOut", duration: 0.6 }}
           >
             <img src={src} alt={`AI Design ${i + 1}`} />
           </motion.div>

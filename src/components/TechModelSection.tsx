@@ -21,7 +21,7 @@ export default function TechModelSection() {
       style={{ marginTop:"-200px"}}
 
 
-      className="relative w-full bg-black text-white pt-32 pb-24 px-6 sm:px-12 overflow-hidden min-h-screen flex items-center"
+      className="relative w-full bg-black text-white pt-32 pb-24 px-2 sm:px-12 overflow-hidden min-h-screen flex items-center"
     >
       {/* 🌊 Top Wave */}
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-none z-12">
@@ -46,7 +46,7 @@ export default function TechModelSection() {
         {/* Left: Main Heading */}
         <motion.div
           style={{ y: yHeading }}
-          className="space-y-6 relative px-1 w-full"
+          className="space-y-6 relative px-0 w-full"
           data-section="tech"
         >
           {/* ✨ SVG Stroke Border */}
@@ -74,7 +74,7 @@ export default function TechModelSection() {
             />
           </motion.svg>
 
-          <h2 className="text-6xl sm:text-6xl font-extrabold uppercase sm:p-10 leading-tight tracking-tight">
+          <h2 className="text-5xl sm:text-6xl font-extrabold uppercase sm:p-10 leading-tight tracking-tight">
             <span className="block">From Design to Production</span>
             <span className="block text-blue-400">We Keep Your Fees Low</span>
           </h2>

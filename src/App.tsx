@@ -18,9 +18,9 @@ function App() {
       <Navbar />
       <section id="home">
         <SunriseScene />
-      <section id="desing">
+      <section id="design">
         <WaveDivider />
-        <WavyTopReveal scrollRef={scrollRef} />
+        <WavyTopReveal ref={scrollRef} scrollRef={scrollRef} />
           {/* 🔽 Scroll Targets */}
       </section>
       </section>

@@ -67,7 +67,7 @@ export default function SunriseScene() {
             top: 0,
             left: 0,
             width: "100vw",
-            height: "100vh",
+            height: isMobile  ? "110vh" : "100vh",
             background: "linear-gradient(to top, rgba(0,0,0,0.1), transparent)",
             zIndex: 12,
             opacity: overlayOpacity,
@@ -123,7 +123,7 @@ export default function SunriseScene() {
         >
           <motion.h1
             style={{
-              fontSize: "13rem",
+              fontSize: isMobile ? "10rem": "13rem",
               fontWeight: 500,
               margin: 0,
               letterSpacing: "-0.02em",
@@ -155,19 +155,18 @@ export default function SunriseScene() {
             zIndex: 14,
             opacity: taglineOpacity,
             y: taglineY,
-            textAlign: "center",
+            textAlign: "left",
             color: "#333",
-            fontSize: "1.6rem",
+            fontSize: isMobile ? "1.22rem" : "1.4rem",
             fontWeight: 400,
             maxWidth: "100%",
             fontFamily: "'Segoe UI', sans-serif",    
-            padding: "10px"     
+            padding: isMobile ? "1rem": "30px"     
           }}
         >
-          <p>
-            Beautiful websites. Intuitive design. <br />
-            From concept to launch—with AI by our side.
-          </p>
+          <p>We specialize in crafting stunning and functional websites and applications, powered by a blend of creativity and cutting-edge AI.</p>
+          <p> Whether you're starting with a rough sketch or launching a full brand, we turn ideas into beautifully executed digital experiences.</p>
+
         </motion.div>
       </motion.div>
 

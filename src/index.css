@@ -170,3 +170,28 @@ body::-webkit-scrollbar {
   display: none; /* Chrome, Safari */
 }
 
+
+
+.circle-reveal-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.circle-reveal-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: #5910EF; /* Tailwind's blue-200 */
+  clip-path: circle(0% at 100% 100%);
+  transition: clip-path 0.8s ease-in-out;
+  z-index: 1;
+}
+
+.circle-reveal-overlay.hovered {
+  clip-path: circle(150% at 50% 50%);
+}
+
+.circle-reveal-text {
+  position: relative;
+  z-index: 10;
+  transition: color 0.3s ease;
+}

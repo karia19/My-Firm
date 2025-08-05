@@ -53,7 +53,7 @@ export default function WorkFlow() {
               <motion.li
                 key={i}
                 ref={ref}
-                className={`text-6xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-8xl font-bold uppercase transition duration-800 ${
+                className={`text-4xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-8xl font-bold uppercase transition duration-800 ${
                   inView
                     ? "opacity-100 scale-[1.05] text-purple-600"
                     : "opacity-30 scale-100"
